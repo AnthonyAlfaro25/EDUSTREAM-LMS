@@ -1,0 +1,26 @@
+package com.vantylabs.edustream;
+
+// @author anthony
+/* Clase para el usuario Estudiante derivada de la clase abstracta Usuario */
+
+public class Estudiante extends Usuario {
+    private String carnet;
+
+    public Estudiante(int id, String nombre, String email, String contrasenia, String carnet) {
+        super(id, nombre, email, contrasenia);
+        this.carnet = carnet;
+    }
+
+    public String getCarnet() { 
+       return carnet; 
+    }
+    
+    public void setCarnet(String carnet) { 
+       this.carnet = carnet;
+    }
+
+    @Override
+    public String getRol() { 
+       return "Estudiante";
+    }
+}
