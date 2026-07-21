@@ -15,6 +15,7 @@ public class Curso implements ICursoOperaciones {
         this.profesor = profesor;
     }
 
+    @Override
     public void inscribir(Estudiante e){
         
     for(Inscripcion i : inscripciones){
@@ -49,10 +50,12 @@ public class Curso implements ICursoOperaciones {
 
     }
 
+    @Override
     public void eliminar(Estudiante e) {
         estudiantes.remove(e);
     }
 
+    @Override
     public void listarEstudiantes() {
         for (Estudiante e : estudiantes) {
             System.out.println(e.getNombre());
