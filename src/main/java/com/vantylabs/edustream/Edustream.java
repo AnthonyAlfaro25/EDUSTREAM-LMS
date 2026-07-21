@@ -29,7 +29,7 @@ public class Edustream {
             System.out.println("6. Listar Estudiantes");
             System.out.println("7. Ver Inscripciones");
             System.out.println("8. Salir");
-            System.out.print("Seleccione una opcion: ");
+            System.out.print("Seleccione una opciones: ");
 
             opcion = sc.nextInt();
             sc.nextLine();
