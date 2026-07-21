@@ -65,6 +65,7 @@ public class Curso implements ICursoOperaciones {
     public ArrayList<Inscripcion> getInscripciones() {
 
     return inscripciones;
+    
 
     }
     }
