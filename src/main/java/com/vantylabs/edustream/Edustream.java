@@ -18,9 +18,9 @@ public class Edustream {
 
         do {
 
-            System.out.println("\n---------------------------------");
+            System.out.println("\n----------------------------------");
             System.out.println("       SISTEMA EDUSTREAM");
-            System.out.println("---------------------------------");
+            System.out.println("----------------------------------");
             System.out.println("1. Registrar Profesor");
             System.out.println("2. Registrar Estudiante");
             System.out.println("3. Crear Curso");
