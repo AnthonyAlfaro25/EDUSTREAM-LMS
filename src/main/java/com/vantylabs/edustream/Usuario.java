@@ -9,8 +9,12 @@ public abstract class Usuario {
     private String nombre;
     private String email;
     private String contrasenia;
+    
+    // Constructor vacio
+    public Usuario() {
+    }
 
-    // constructor primario para pruebas
+    // Constructor completo (Para leer usuarios desde la DB)
     public Usuario(int id, String nombre, String email, String contrasenia){
         this.id = id;
         this.nombre = nombre;
@@ -18,7 +22,7 @@ public abstract class Usuario {
         this.contrasenia = contrasenia;
     }
     
-    // constructor compatible con base de datos (sin ID)
+    // Constructor sin ID (Para crear usuarios compatibles con la DB)
     public Usuario(String nombre, String email, String contrasenia) {
         this.nombre = nombre;
         this.email = email;
