@@ -1,7 +1,7 @@
 package com.vantylabs.edustream;
 
-/*@author BEN_10*/
-import java.time.LocalDate;
+// @author Fabricio
+/* Clase de inscripcion de estudiantes al curso */
 
 import java.time.LocalDate;
 
