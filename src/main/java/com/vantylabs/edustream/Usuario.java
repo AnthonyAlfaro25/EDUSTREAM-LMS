@@ -5,14 +5,21 @@ package com.vantylabs.edustream;
    para todos los tipos de usuario que utilizen la plataforma */
 
 public abstract class Usuario {
-    protected int id;
-    protected String nombre;
-    protected String email;
-    protected String contrasenia;
+    private int id;
+    private String nombre;
+    private String email;
+    private String contrasenia;
 
-    // constructor
+    // constructor primario para pruebas
     public Usuario(int id, String nombre, String email, String contrasenia){
         this.id = id;
+        this.nombre = nombre;
+        this.email = email;
+        this.contrasenia = contrasenia;
+    }
+    
+    // constructor compatible con base de datos (sin ID)
+    public Usuario(String nombre, String email, String contrasenia) {
         this.nombre = nombre;
         this.email = email;
         this.contrasenia = contrasenia;
@@ -54,7 +61,7 @@ public abstract class Usuario {
     //metodo getter abstracto para obtener el rol especifico de cada usuario
     public abstract String getRol();
     
-    //metodo para printear el usuario
+    //metodo para mostrar el usuario
     @Override
     public String toString() {
         return "[" + getRol() + "] " + nombre + " - " + email;
