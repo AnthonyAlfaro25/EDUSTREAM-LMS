@@ -11,13 +11,13 @@ public class Edustream {
         
         try (Connection conn = Conexion.getConexion()) {
             if (conn != null) {
-                System.out.println("¡Conexión a MySQL exitosa!");
+                System.out.println("Conexion a MySQL exitosa!");
             }
         } catch (SQLException e) {
             System.err.println("Error al conectar a la base de datos: " + e.getMessage());
         }
     
-        Scanner sc = new Scanner(System.in);
+        /* Scanner sc = new Scanner(System.in);
 
         ArrayList<Estudiante> estudiantes = new ArrayList<>();
 
@@ -247,6 +247,6 @@ public class Edustream {
 
         } while (opcion != 8);
 
-        sc.close();
+        sc.close(); */
     }
 }
