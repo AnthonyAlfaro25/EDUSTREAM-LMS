@@ -1,32 +1,63 @@
 package com.vantylabs.edustream;
 
-/*@author BEN_10*/
-import java.time.LocalDate;
+// @author Fabricio
+/* Clase de inscripcion de estudiantes al curso */
 
 import java.time.LocalDate;
 
 public class Inscripcion {
-
+    
+    private int id;
     private Estudiante estudiante;
     private Curso curso;
     private LocalDate fecha;
+    
+    public Inscripcion() {
+    }
 
     public Inscripcion(Estudiante estudiante, Curso curso) {
         this.estudiante = estudiante;
         this.curso = curso;
         this.fecha = LocalDate.now();
     }
+    
+    public Inscripcion(int id, Estudiante estudiante, Curso curso, LocalDate fecha) {
+        this.id = id;
+        this.estudiante = estudiante;
+        this.curso = curso;
+        this.fecha = fecha;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public Estudiante getEstudiante() {
         return estudiante;
+    }
+
+    public void setEstudiante(Estudiante estudiante) {
+        this.estudiante = estudiante;
     }
 
     public Curso getCurso() {
         return curso;
     }
 
+    public void setCurso(Curso curso) {
+        this.curso = curso;
+    }
+
     public LocalDate getFecha() {
         return fecha;
+    }
+
+    public void setFecha(LocalDate fecha) {
+        this.fecha = fecha;
     }
 
 }

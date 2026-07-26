@@ -1,13 +1,23 @@
 package com.vantylabs.edustream;
 
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Edustream {
 
     public static void main(String[] args) {
-
-        Scanner sc = new Scanner(System.in);
+        
+        try (Connection conn = Conexion.getConexion()) {
+            if (conn != null) {
+                System.out.println("Conexion a MySQL exitosa!");
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al conectar a la base de datos: " + e.getMessage());
+        }
+    
+        /* Scanner sc = new Scanner(System.in);
 
         ArrayList<Estudiante> estudiantes = new ArrayList<>();
 
@@ -237,8 +247,6 @@ public class Edustream {
 
         } while (opcion != 8);
 
-        sc.close();
-
+        sc.close(); */
     }
-
 }

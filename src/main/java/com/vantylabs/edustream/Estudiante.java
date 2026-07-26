@@ -5,9 +5,21 @@ package com.vantylabs.edustream;
 
 public class Estudiante extends Usuario {
     private String carnet;
-
+    
+    // Constructor vacío
+    public Estudiante() {
+        super();
+    }
+    
+    // Constructor completo
     public Estudiante(int id, String nombre, String email, String contrasenia, String carnet) {
         super(id, nombre, email, contrasenia);
+        this.carnet = carnet;
+    }
+    
+    // Constructor sin id
+    public Estudiante(String nombre, String email, String contrasenia, String carnet) {
+        super(nombre, email, contrasenia);
         this.carnet = carnet;
     }
 
