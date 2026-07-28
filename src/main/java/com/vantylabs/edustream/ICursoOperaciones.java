@@ -1,6 +1,6 @@
 package com.vantylabs.edustream;
 
-// @author Fabricio
+// @author Bairon
 /* Interfaz entre usuario estudiante y operaciones para el curso */
 
 public interface ICursoOperaciones {
