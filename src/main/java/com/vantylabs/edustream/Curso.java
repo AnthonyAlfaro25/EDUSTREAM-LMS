@@ -1,6 +1,6 @@
 package com.vantylabs.edustream;
 
-// @author Fabricio
+// @author Fabricio y Bairon
 /* Clase para para el curso que implementa la interfaz de operaciones */
 
 import java.util.ArrayList;
