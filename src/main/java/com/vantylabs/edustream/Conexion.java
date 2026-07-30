@@ -19,4 +19,12 @@ public class Conexion {
             throw new SQLException(e);
         }
     }
+    
+    public static boolean probarConexion() {
+        try (Connection con = new Conexion().getConexion()) {
+            return con != null && !con.isClosed();
+        } catch (SQLException e) {
+            return false;
+        }
+    }
 }

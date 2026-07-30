@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.vantylabs.edustream.dao;
 
 import com.vantylabs.edustream.Conexion;
@@ -21,6 +17,7 @@ import java.util.List;
  *
  * @author Fabricio
  */
+
 public class CursoDAO implements ICrudDAO<Curso> {
 
     private final Conexion conexion = new Conexion();
@@ -101,6 +98,41 @@ public class CursoDAO implements ICrudDAO<Curso> {
 
         }
 
+    }
+    
+    public List<Curso> obtenerPorProfesor(int idProfesor) throws SQLException {
+
+    List<Curso> lista = new ArrayList<>();
+
+    String sql = """
+                 SELECT *
+                 FROM cursos
+                 WHERE id_profesor = ?
+                 ORDER BY id_curso
+                 """;
+
+    try (Connection con = Conexion.getConexion();
+            PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setInt(1, idProfesor);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    Curso curso = new Curso();
+
+                    curso.setId(rs.getInt("id_curso"));
+                    curso.setNombre(rs.getString("nombre_curso"));
+                    curso.setDescripcion(rs.getString("descripcion"));
+
+                    Profesor profesor = new Profesor();
+                    profesor.setId(rs.getInt("id_profesor"));
+                    curso.setProfesor(profesor);
+
+                    lista.add(curso);
+                }
+            }
+        }
+        return lista;
     }
 
 }

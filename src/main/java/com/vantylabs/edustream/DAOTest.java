@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.vantylabs.edustream;
 
 import com.vantylabs.edustream.dao.CursoDAO;
@@ -184,7 +180,5 @@ public class DAOTest {
         }
 
         // dao.eliminarPorId(1);
-
     }
-
 }

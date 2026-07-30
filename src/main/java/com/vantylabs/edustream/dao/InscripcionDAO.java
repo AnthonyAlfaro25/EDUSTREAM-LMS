@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.vantylabs.edustream.dao;
 
 import com.vantylabs.edustream.Conexion;
@@ -22,6 +18,7 @@ import java.util.List;
  *
  * @author Fabricio
  */
+
 public class InscripcionDAO implements ICrudDAO<Inscripcion> {
 
     private final Conexion conexion = new Conexion();
@@ -108,5 +105,35 @@ public class InscripcionDAO implements ICrudDAO<Inscripcion> {
         }
 
     }
+    public List<Estudiante> obtenerEstudiantesPorCurso(int idCurso) throws SQLException {
+    List<Estudiante> lista = new ArrayList<>();
 
+    // Consulta SQL que une la tabla de inscripciones con la de usuarios
+    String sql = """
+                 SELECT u.id_usuario, u.nombre, u.email
+                 FROM usuarios u
+                 INNER JOIN inscripciones i ON u.id_usuario = i.id_estudiante
+                 WHERE i.id_curso = ? AND u.rol = 'ESTUDIANTE'
+                 ORDER BY u.nombre
+                 """;
+
+    try (Connection con = Conexion.getConexion();
+         PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setInt(1, idCurso);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    Estudiante estudiante = new Estudiante();
+
+                    estudiante.setId(rs.getInt("id_usuario"));
+                    estudiante.setNombre(rs.getString("nombre"));
+                    estudiante.setEmail(rs.getString("email"));
+
+                    lista.add(estudiante);
+                }
+            }
+        }
+        return lista;
+    }
 }
