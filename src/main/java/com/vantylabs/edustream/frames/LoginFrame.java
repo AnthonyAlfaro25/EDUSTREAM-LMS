@@ -27,7 +27,7 @@ public class LoginFrame extends javax.swing.JFrame {
 
     private void autenticar() {
         String usuario = txtCorreo.getText().trim();
-        String password = new String(pswContrasenia.getPassword());
+        String password = new String(pswPassword.getPassword());
 
         if (usuario.isEmpty() || password.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Debe ingresar usuario y contraseña.");
@@ -80,7 +80,7 @@ public class LoginFrame extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         btnIngresar = new javax.swing.JButton();
         btnResgistrarse = new javax.swing.JButton();
-        pswContrasenia = new javax.swing.JPasswordField();
+        pswPassword = new javax.swing.JPasswordField();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -91,8 +91,6 @@ public class LoginFrame extends javax.swing.JFrame {
         ttl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ttl.setText("EDUSTREAM");
 
-        txtCorreo.setText("@example.com");
-
         jLabel1.setText("Ingrese su correo");
 
         jLabel2.setText("Ingrese su contraseña");
@@ -102,8 +100,6 @@ public class LoginFrame extends javax.swing.JFrame {
 
         btnResgistrarse.setText("Registrarse");
         btnResgistrarse.addActionListener(this::btnResgistrarseActionPerformed);
-
-        pswContrasenia.setText("jPasswordField1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -133,7 +129,7 @@ public class LoginFrame extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtCorreo, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
-                                    .addComponent(pswContrasenia))))))
+                                    .addComponent(pswPassword))))))
                 .addContainerGap(58, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -148,7 +144,7 @@ public class LoginFrame extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(pswContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pswPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnIngresar, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
@@ -174,7 +170,7 @@ public class LoginFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPasswordField pswContrasenia;
+    private javax.swing.JPasswordField pswPassword;
     private javax.swing.JLabel ttl;
     private javax.swing.JTextField txtContrasena;
     private javax.swing.JTextField txtCorreo;
