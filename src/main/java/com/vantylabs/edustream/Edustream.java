@@ -1,26 +1,29 @@
 package com.vantylabs.edustream;
 
-import com.vantylabs.edustream.dao.EstudianteDAO;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Scanner;
+import com.vantylabs.edustream.frames.LoginFrame;
+import javax.swing.JOptionPane;
 
 public class Edustream {
 
     public static void main(String[] args) {
-        
-          
-        
-        try (Connection conn = Conexion.getConexion()) {
-            if (conn != null) {
-                System.out.println("Conexion a MySQL exitosa!");
-            }
-        } catch (SQLException e) {
-            System.err.println("Error al conectar a la base de datos: " + e.getMessage());
-        }
+    // Verifica si hay conexión con MySQL antes de mostrar la pantalla
+    if (!Conexion.probarConexion()) {
+        JOptionPane.showMessageDialog(
+            null, 
+            "Error: No se pudo conectar a la base de datos.", 
+            "Error de Conexión", 
+            JOptionPane.ERROR_MESSAGE
+        );
+        System.exit(0); // Cierra el programa si la BD no esta conectada
+    }
+
+    // Si la conexión es exitosa, abre la ventana
+    java.awt.EventQueue.invokeLater(() -> new LoginFrame().setVisible(true));
+
     
-        /* Scanner sc = new Scanner(System.in);
+    /* Este bloque de codigo corresponde a la fase de pruebas sin base de datos
+    
+        Scanner sc = new Scanner(System.in);
 
         ArrayList<Estudiante> estudiantes = new ArrayList<>();
 
@@ -252,5 +255,4 @@ public class Edustream {
 
         sc.close(); */
     }
-    
 }

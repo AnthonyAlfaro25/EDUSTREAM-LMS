@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.vantylabs.edustream.dao;
 
 import com.vantylabs.edustream.Conexion;
@@ -99,5 +95,31 @@ public class EstudianteDAO implements ICrudDAO<Estudiante> {
         }
 
     }
+    
+    public Estudiante autenticar(String usuario, String password) throws SQLException {
+    String sql = """
+                 SELECT id_usuario, nombre, email, password
+                 FROM usuarios
+                 WHERE email = ? AND password = ? AND rol = 'ESTUDIANTE'
+                 """;
 
+    try (Connection con = Conexion.getConexion();
+         PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, usuario);
+            ps.setString(2, password);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    Estudiante estudiante = new Estudiante();
+                    estudiante.setId(rs.getInt("id_usuario"));
+                    estudiante.setNombre(rs.getString("nombre"));
+                    estudiante.setEmail(rs.getString("email"));
+                    estudiante.setPassword(rs.getString("password"));
+                    return estudiante;
+                }
+            }
+        }
+    return null; // Si las credenciales son incorrectas
+    }
 }

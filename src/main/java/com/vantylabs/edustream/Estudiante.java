@@ -12,14 +12,14 @@ public class Estudiante extends Usuario {
     }
     
     // Constructor completo
-    public Estudiante(int id, String nombre, String email, String contrasenia, String carnet) {
-        super(id, nombre, email, contrasenia);
+    public Estudiante(int id, String nombre, String email, String password, String carnet) {
+        super(id, nombre, email, password);
         this.carnet = carnet;
     }
     
     // Constructor sin id
-    public Estudiante(String nombre, String email, String contrasenia, String carnet) {
-        super(nombre, email, contrasenia);
+    public Estudiante(String nombre, String email, String password, String carnet) {
+        super(nombre, email, password);
         this.carnet = carnet;
     }
 
@@ -34,13 +34,5 @@ public class Estudiante extends Usuario {
     @Override
     public String getRol() { 
        return "Estudiante";
-    }
-
-    public String getPassword() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public void setPassword(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

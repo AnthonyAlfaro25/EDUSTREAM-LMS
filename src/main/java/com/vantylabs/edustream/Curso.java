@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class Curso implements ICursoOperaciones {
     private int id;
     private String nombre;
+    private String descripcion;
     private Profesor profesor;
     private ArrayList<Estudiante> estudiantes = new ArrayList<>();
     private ArrayList<Inscripcion> inscripciones = new ArrayList<>();
@@ -15,14 +16,16 @@ public class Curso implements ICursoOperaciones {
     public Curso () {
     }
     
-    public Curso(int id, String nombre, Profesor profesor) {
+    public Curso(int id, String nombre, String descripcion, Profesor profesor) {
         this.id = id;
         this.nombre = nombre;
+        this.descripcion = descripcion;
         this.profesor = profesor;
     }
 
-    public Curso(String nombre, Profesor profesor) {
+    public Curso(String nombre, String descripcion, Profesor profesor) {
         this.nombre = nombre;
+        this.descripcion = descripcion;
         this.profesor = profesor;
     }
     
@@ -100,10 +103,11 @@ public class Curso implements ICursoOperaciones {
     }
 
     public void setDescripcion(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.descripcion = string;
     }
 
     public String getDescripcion() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return descripcion;
     }
+        
 }

@@ -8,7 +8,7 @@ public abstract class Usuario {
     private int id;
     private String nombre;
     private String email;
-    private String contrasenia;
+    private String password;
     
     // Constructor vacio
     public Usuario() {
@@ -19,14 +19,14 @@ public abstract class Usuario {
         this.id = id;
         this.nombre = nombre;
         this.email = email;
-        this.contrasenia = contrasenia;
+        this.password = contrasenia;
     }
     
     // Constructor sin ID (Para crear usuarios compatibles con la DB)
     public Usuario(String nombre, String email, String contrasenia) {
         this.nombre = nombre;
         this.email = email;
-        this.contrasenia = contrasenia;
+        this.password = contrasenia;
     }
 
     // getters y setters
@@ -54,12 +54,12 @@ public abstract class Usuario {
         this.email = email;
     }
 
-    public String getContrasenia() {
-        return contrasenia;
+    public String getPassword() {
+        return password;
     }
 
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
+    public void setPassword(String password) {
+        this.password = password;
     }
     
     //metodo getter abstracto para obtener el rol especifico de cada usuario

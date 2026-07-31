@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * DAO para la gestión de profesores.
+ * DAO para la gestion de profesores.
  *
  * @author Fabricio
  */
@@ -92,6 +92,33 @@ public class ProfesorDAO implements ICrudDAO<Profesor> {
 
             return ps.executeUpdate() > 0;
         }
+    }
+    
+    public Profesor autenticar(String usuario, String password) throws SQLException {
+    String sql = """
+                 SELECT id_usuario, nombre, email, password
+                 FROM usuarios
+                 WHERE email = ? AND password = ? AND rol = 'PROFESOR'
+                 """;
+
+    try (Connection con = Conexion.getConexion();
+         PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, usuario);
+            ps.setString(2, password);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    Profesor profesor = new Profesor();
+                    profesor.setId(rs.getInt("id_usuario"));
+                    profesor.setNombre(rs.getString("nombre"));
+                    profesor.setEmail(rs.getString("email"));
+                    profesor.setPassword(rs.getString("password"));
+                    return profesor;
+                }
+            }
+        }
+        return null; // Si las credenciales son incorrectas
     }
 
 }
