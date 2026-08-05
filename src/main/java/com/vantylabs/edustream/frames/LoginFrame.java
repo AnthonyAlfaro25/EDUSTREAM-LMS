@@ -156,7 +156,13 @@ public class LoginFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnResgistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResgistrarseActionPerformed
-        // TODO add your handling code here:
+   
+
+    Registarse registro = new Registarse();
+    registro.setVisible(true);
+    this.dispose();   // opcional: cierra el Login
+
+
     }//GEN-LAST:event_btnResgistrarseActionPerformed
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
