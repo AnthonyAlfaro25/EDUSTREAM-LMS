@@ -112,8 +112,11 @@
     </Container>
     <Component class="javax.swing.JToggleButton" name="btnNuevoCurso">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Abrir Curso"/>
+        <Property name="text" type="java.lang.String" value="Crear Curso"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNuevoCursoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnVolver">
       <Properties>

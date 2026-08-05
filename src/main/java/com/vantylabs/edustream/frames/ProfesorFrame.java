@@ -141,7 +141,8 @@ public class ProfesorFrame extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblEstudiantes);
 
-        btnNuevoCurso.setText("Abrir Curso");
+        btnNuevoCurso.setText("Crear Curso");
+        btnNuevoCurso.addActionListener(this::btnNuevoCursoActionPerformed);
 
         btnVolver.setText("<");
         btnVolver.addActionListener(this::btnVolverActionPerformed);
@@ -196,6 +197,45 @@ public class ProfesorFrame extends javax.swing.JFrame {
         cargarEstudiantes();
     }//GEN-LAST:event_cmbCursosActionPerformed
 
+    private void btnNuevoCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoCursoActionPerformed
+     String nombre = JOptionPane.showInputDialog(this, "Ingrese el nombre del curso:");
+
+if (nombre == null || nombre.trim().isEmpty()) {
+    return;
+}
+
+String descripcion = JOptionPane.showInputDialog(this, "Ingrese la descripción del curso:");
+
+if (descripcion == null || descripcion.trim().isEmpty()) {
+    return;
+}
+
+Curso curso = new Curso();
+curso.setNombre(nombre);
+curso.setDescripcion(descripcion);
+curso.setProfesor(profesorActual);
+
+try {
+
+    if (cursoDAO.insertar(curso)) {
+
+        JOptionPane.showMessageDialog(this, "Curso creado correctamente.");
+
+        cargarCursosEnCombo();
+
+    } else {
+
+        JOptionPane.showMessageDialog(this, "No fue posible crear el curso.");
+
+    }
+
+} catch (SQLException ex) {
+
+    JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
+
+}  
+    }//GEN-LAST:event_btnNuevoCursoActionPerformed
+
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnNuevoCurso;
@@ -206,3 +246,4 @@ public class ProfesorFrame extends javax.swing.JFrame {
     private javax.swing.JTable tblEstudiantes;
     // End of variables declaration//GEN-END:variables
 }
+
