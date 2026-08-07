@@ -286,57 +286,57 @@ public Registarse() {
     }//GEN-LAST:event_rbProfesorActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        String nombre = txtNombre.getText().trim();
-        String correo = txtCorreo.getText().trim();
-        String password = txtPassword.getText();
-        String confirmar = txtConfirmar.getText();
+                                          
+    String nombre = txtNombre.getText().trim();
+    String correo = txtCorreo.getText().trim();
+    String password = txtPassword.getText();
+    String confirmar = txtConfirmar.getText();
 
-        if (nombre.isEmpty() || correo.isEmpty() || password.isEmpty() || confirmar.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Complete todos los campos.");
+    if (nombre.isEmpty() || correo.isEmpty() || password.isEmpty() || confirmar.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Complete todos los campos.");
+        return;
+    }
+
+    if (!password.equals(confirmar)) {
+        JOptionPane.showMessageDialog(this, "Las contraseñas no coinciden.");
+        return;
+    }
+
+    try {
+
+        if (rbEstudiante.isSelected()) {
+
+            Estudiante estudiante = new Estudiante(nombre, correo, password, "");
+            EstudianteDAO dao = new EstudianteDAO();
+            dao.insertar(estudiante);
+
+            JOptionPane.showMessageDialog(this, "Estudiante registrado correctamente.");
+
+        } else if (rbProfesor.isSelected()) {
+
+            Profesor profesor = new Profesor(nombre, correo, password, "");
+            ProfesorDAO dao = new ProfesorDAO();
+            dao.insertar(profesor);
+
+            JOptionPane.showMessageDialog(this, "Profesor registrado correctamente.");
+
+        } else {
+
+            JOptionPane.showMessageDialog(this, "Seleccione un tipo de usuario.");
             return;
-        }
-
-        if (!password.equals(confirmar)) {
-            JOptionPane.showMessageDialog(this, "Las contraseñas no coinciden.");
-            return;
-        }
-
-        try {
-
-            if (rbEstudiante.isSelected()) {
-
-                Estudiante estudiante = new Estudiante(nombre, correo, password, "");
-                EstudianteDAO dao = new EstudianteDAO();
-                dao.insertar(estudiante);
-
-                JOptionPane.showMessageDialog(this, "Estudiante registrado correctamente.");
-
-            } else if (rbProfesor.isSelected()) {
-
-                Profesor profesor = new Profesor(nombre, correo, password, "");
-                ProfesorDAO dao = new ProfesorDAO();
-                dao.insertar(profesor);
-
-                JOptionPane.showMessageDialog(this, "Profesor registrado correctamente.");
-
-            } else {
-
-                JOptionPane.showMessageDialog(this, "Seleccione un tipo de usuario.");
-                return;
-
-            }
-
-            txtNombre.setText("");
-            txtCorreo.setText("");
-            txtPassword.setText("");
-            txtConfirmar.setText("");
-            buttonGroup1.clearSelection();
-
-        } catch (Exception e) {
-
-            JOptionPane.showMessageDialog(this, e.getMessage());
 
         }
+
+        // Volver automáticamente al Login
+        this.dispose();
+        new LoginFrame().setVisible(true);
+
+    } catch (Exception e) {
+
+        JOptionPane.showMessageDialog(this, e.getMessage());
+
+    }
+
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void rbEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbEstudianteActionPerformed
