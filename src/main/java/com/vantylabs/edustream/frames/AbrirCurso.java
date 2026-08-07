@@ -25,7 +25,7 @@ public class AbrirCurso extends javax.swing.JFrame {
         if (curso.getProfesor() != null) {
             lblProfesor.setText(curso.getProfesor().getNombre());
         } else {
-            lblProfesor.setText("Sin profesor");
+            lblProfesor.setText(" Sin profesor");
         }
 
         txtDescripcion.setText(curso.getDescripcion());
