@@ -156,10 +156,9 @@ public class EstudianteFrame extends javax.swing.JFrame {
         jLabel1.setText("jLabel1");
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(184, 184, 184));
         jLabel2.setText("Mis cursos");
 
-        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(30, 30, 30));
         jLabel3.setText("Estos son los cursos en los que estás inscrito.");
 
@@ -197,7 +196,7 @@ public class EstudianteFrame extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37))
@@ -211,7 +210,7 @@ public class EstudianteFrame extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(pnlCursos, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(75, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -242,7 +241,7 @@ public class EstudianteFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 157, Short.MAX_VALUE))
+                .addGap(0, 154, Short.MAX_VALUE))
         );
 
         pack();

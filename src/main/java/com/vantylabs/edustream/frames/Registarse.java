@@ -25,7 +25,7 @@ public class Registarse extends javax.swing.JFrame {
 public Registarse() {
     initComponents();
 
-    setSize(1200, 800);
+    setSize(1205, 812);
     setLocationRelativeTo(null);
     setResizable(false);
 }
@@ -80,7 +80,7 @@ public Registarse() {
         blCorreo.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         blCorreo.setText("Correo Electrónico");
 
-        btnRegistrar.setBackground(new java.awt.Color(28, 148, 236));
+        btnRegistrar.setBackground(new java.awt.Color(45, 144, 237));
         btnRegistrar.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrar.setText("Registrar");
@@ -126,7 +126,7 @@ public Registarse() {
         lblTitulo.setFont(new java.awt.Font("Century Gothic", 1, 40)); // NOI18N
         lblTitulo.setText("Crea una ");
 
-        btnCancelar.setBackground(new java.awt.Color(28, 148, 236));
+        btnCancelar.setBackground(new java.awt.Color(45, 144, 237));
         btnCancelar.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setText("Cancelar");

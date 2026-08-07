@@ -209,7 +209,7 @@
         <Component class="javax.swing.JButton" name="btnRegistrar">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ec" green="94" red="1c" type="rgb"/>
+              <Color blue="ed" green="90" red="2d" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century Gothic" size="14" style="0"/>
@@ -304,7 +304,7 @@
         <Component class="javax.swing.JButton" name="btnCancelar">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ec" green="94" red="1c" type="rgb"/>
+              <Color blue="ed" green="90" red="2d" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century Gothic" size="14" style="0"/>

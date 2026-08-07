@@ -116,7 +116,7 @@ public class AbrirCurso extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblEstudiantes);
 
         btnActualizar.setBackground(new java.awt.Color(45, 144, 237));
-        btnActualizar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnActualizar.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         btnActualizar.setForeground(new java.awt.Color(255, 255, 255));
         btnActualizar.setText("Actualizar");
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -128,13 +128,13 @@ public class AbrirCurso extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(229, 231, 235));
         jLabel6.setText("---------------------------------------------------------------------");
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/usuario.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/3.png"))); // NOI18N
         jLabel4.setText("jLabel4");
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/editar.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1.png"))); // NOI18N
         jLabel5.setText("jLabel5");
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/curso.png"))); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/2.png"))); // NOI18N
         jLabel9.setText("jLabel4");
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo 1.png"))); // NOI18N
@@ -186,8 +186,8 @@ public class AbrirCurso extends javax.swing.JFrame {
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 649, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(133, 133, 133))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(267, 267, 267)
-                .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(270, 270, 270)
+                .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -231,9 +231,9 @@ public class AbrirCurso extends javax.swing.JFrame {
                     .addComponent(tblEstudiantesTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
-                .addComponent(btnActualizar)
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addGap(53, 53, 53)
+                .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(105, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
