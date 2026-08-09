@@ -45,32 +45,27 @@ public class ProfesorFrame extends javax.swing.JFrame {
 
     private void cargarCursosEnCombo() {
         try {
-
             listaCursos = cursoDAO.obtenerPorProfesor(profesorActual.getId());
-
             cmbCursos.removeAllItems();
-            listaCursos = cursoDAO.obtenerPorProfesor(profesorActual.getId());
-            
+            try {
+                listaCursos = cursoDAO.obtenerPorProfesor(profesorActual.getId());
+            } catch (SQLException ex) {
+                System.getLogger(ProfesorFrame.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+            }
             if (listaCursos.isEmpty()) {
                 cmbCursos.addItem("Sin cursos asignados");
                 return;
             }
-
             // Agregar el nombre de cada curso al ComboBox
             for (Curso c : listaCursos) {
                 cmbCursos.addItem(c.getNombre());
             }
-            
             // Volver a escuchar el ComboBox
             cmbCursos.addActionListener(this::cmbCursosActionPerformed);
-            
             // Cargar estudiantes del primer curso por defecto
             cargarEstudiantes();
-
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this, 
-                    "Error al cargar mis cursos: " + ex.getMessage(), 
-                    "Error SQL", JOptionPane.ERROR_MESSAGE);
+            System.getLogger(ProfesorFrame.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
         }
     }
 
