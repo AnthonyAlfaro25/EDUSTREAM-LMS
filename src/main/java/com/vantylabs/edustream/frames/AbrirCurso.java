@@ -1,5 +1,9 @@
 package com.vantylabs.edustream.frames;
 
+import com.vantylabs.edustream.Estudiante;
+import com.vantylabs.edustream.dao.InscripcionDAO;
+import java.sql.SQLException;
+import java.util.List;
 import com.vantylabs.edustream.Conexion;
 import com.vantylabs.edustream.Curso;
 import java.sql.Connection;
@@ -286,6 +290,7 @@ this.dispose();
 
     }//GEN-LAST:event_btnVolverActionPerformed
 
+
 private void cargarDatosCurso(){
 
     lblCurso.setText(curso.getNombre());
@@ -294,46 +299,39 @@ private void cargarDatosCurso(){
 
 }
 
-private void cargarEstudiantes(){
+private final InscripcionDAO inscripcionDAO = new InscripcionDAO();
+
+private void cargarEstudiantes() {
 
     DefaultTableModel modelo =
             (DefaultTableModel) tblEstudiantes.getModel();
 
     modelo.setRowCount(0);
 
-    String sql = """
-    SELECT u.id_usuario,
-           u.nombre,
-           u.email
-    FROM usuarios u
-    INNER JOIN inscripciones i
-    ON u.id_usuario=i.id_estudiante
-    WHERE i.id_curso=?
-    """;
+    try {
 
-    try(Connection con = Conexion.getConexion();
-        PreparedStatement ps = con.prepareStatement(sql)){
+        List<Estudiante> estudiantes =
+                inscripcionDAO.obtenerEstudiantesPorCurso(idCurso);
 
-        ps.setInt(1, idCurso);
-
-        ResultSet rs = ps.executeQuery();
-
-        while(rs.next()){
+        for (Estudiante estudiante : estudiantes) {
 
             modelo.addRow(new Object[]{
-                rs.getInt("id_usuario"),
-                rs.getString("nombre"),
-                rs.getString("email")
+                estudiante.getId(),
+                estudiante.getNombre(),
+                estudiante.getEmail()
             });
-
         }
 
-    }catch(Exception e){
+    } catch (SQLException ex) {
 
-        JOptionPane.showMessageDialog(this, e.getMessage());
-
+        JOptionPane.showMessageDialog(
+                this,
+                "Error al cargar estudiantes: "
+                + ex.getMessage(),
+                "Error SQL",
+                JOptionPane.ERROR_MESSAGE
+        );
     }
-
 }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
