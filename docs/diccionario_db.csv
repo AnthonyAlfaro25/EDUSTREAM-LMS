@@ -1,0 +1,15 @@
+Tabla,Columna,"Tipo de Dato",Tabla,"Por defecto"
+cursos,id_curso,int,PRI,NULL
+cursos,nombre_curso,varchar(150),,NULL
+cursos,descripcion,text,,NULL
+cursos,id_profesor,int,MUL,NULL
+inscripciones,id_inscripcion,int,PRI,NULL
+inscripciones,id_estudiante,int,MUL,NULL
+inscripciones,id_curso,int,MUL,NULL
+inscripciones,fecha_inscripcion,date,,NULL
+usuarios,id_usuario,int,PRI,NULL
+usuarios,nombre,varchar(100),,NULL
+usuarios,email,varchar(100),UNI,NULL
+usuarios,password,varchar(255),,NULL
+usuarios,rol,"enum('ESTUDIANTE','PROFESOR')",,NULL
+usuarios,fecha_registro,timestamp,,CURRENT_TIMESTAMP
