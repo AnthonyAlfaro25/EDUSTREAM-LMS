@@ -1,4 +1,4 @@
-# EDUSTREAM LMS (Edición G4 - Progra-II)
+# EDUSTREAM LMS (Edición G4 - Programación II)
 
 > Proyecto universitario realizado para el curso de Programación II de la Universidad Tecnológica Costarricense.
 
