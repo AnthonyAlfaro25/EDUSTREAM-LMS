@@ -96,7 +96,7 @@ mvn clean install
 
 o en Netbeans **Compile & Run Project**
 
- _Los archivos de dependencias ya se encargan con configurar el entorno en NetBeans_
+ _Los archivos de dependencias ya se encargan de configurar el entorno en NetBeans_
 
 ## Estructura del Proyecto
 
