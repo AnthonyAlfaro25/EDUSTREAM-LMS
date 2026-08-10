@@ -111,7 +111,7 @@ o en Netbeans **Compile & Run Project**
 
 ## Estructura del Proyecto
 
-![Estructura]
+![Estructura](./docs/estructura.pmg)
 
 ---
 
