@@ -61,7 +61,7 @@ Es una plataforma de gestión académica o Learning Management System (LMS). Des
 ## Arquitectura y Tecnologías
 
 - **Entorno de Programación:** NetBeans
-- **Lenguaje de Programación:** Java (Versión [JDK 26/25])
+- **Lenguaje de Programación:** Java (JDK 26/25)
 - **Gestión de Dependencias:** Maven
 - **Base de Datos:** MySQL
 - **Patrón de Arquitectura:** Arquitectura en Capas + DAO
