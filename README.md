@@ -29,14 +29,13 @@ Es una plataforma de gestión académica o Learning Management System (LMS). Des
 1. [Información General](#-información-general)
 2. [Características Principales](#-características-principales)
 3. [Arquitectura y Tecnologías](#-arquitectura-y-tecnologías)
-4. [Requisitos del Sistema](#-requisitos-del-sistema)
-5. [Instalación y Configuración](#-instalación-y-configuración)
-6. [Ejecución](#-ejecución)
-7. [Estructura del Proyecto](#-estructura-del-proyecto)
-8. [Casos de Uso / Roles de Usuario](#-casos-de-uso--roles-de-usuario)
-9. [Diseño de Base de Datos](#-diseño-de-base-de-datos)
-10. [Equipo de Desarrollo](#-equipo-de-desarrollo)
-11. [Licencia / Información Académica](#-licencia--información-académica)
+4. [Instalación y Configuración](#-instalación-y-configuración)
+5. [Ejecución](#-ejecución)
+6. [Estructura del Proyecto](#-estructura-del-proyecto)
+7. [Casos de Uso / Roles de Usuario](#-casos-de-uso--roles-de-usuario)
+8. [Diseño de Base de Datos](#-diseño-de-base-de-datos)
+9. [Equipo de Desarrollo](#-equipo-de-desarrollo)
+10. [Licencia / Información Académica](#-licencia--información-académica)
 
 ---
 
@@ -65,17 +64,6 @@ Es una plataforma de gestión académica o Learning Management System (LMS). Des
 - **Gestión de Dependencias:** Maven
 - **Base de Datos:** MySQL
 - **Patrón de Arquitectura:** Arquitectura en Capas + DAO
-
----
-
-## Requisitos del Sistema
-
-### Prerrequisitos
-
-- **JDK:** Versión [22] o superior.
-- **IDE Recomendado:** [NetBeans / VS Code].
-- **Gestor de Base de Datos:** MySQL Server.
-- **Gestor de Construcción:** Apache Maven.
 
 ---
 
