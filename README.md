@@ -8,7 +8,7 @@
 
 ## Descripción:
 
-Es una plataforma de gestión académica o Learning Management System (LMS). Desarrollado de manera simplificada utilizando Java SE, una base de datos MySQL con servidor local e paneles interactivos mediante Jframes como una aplicación de escritorio.
+Es una plataforma de gestión académica o Learning Management System (LMS). Desarrollado de manera simplificada utilizando Java SE, una base de datos MySQL con servidor local y paneles interactivos mediante Jframes como una aplicación de escritorio.
 
 **Objetivos Técnico:**
 
