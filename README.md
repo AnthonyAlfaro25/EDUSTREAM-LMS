@@ -42,10 +42,10 @@ Es una plataforma de gestión académica o Learning Management System (LMS). Des
 
 ## Información General
 
-- **Institución:** [Universidad Tecnológica Costarricense]
-- **Curso / Asignatura:** [Programación II]
-- **Periodo Lectivo:** [Segundo Cuatrimestre 2026]
-- **Profesor(a):** [Ing. Pablo Cordero Vega]
+- **Institución:** Universidad Tecnológica Costarricense
+- **Curso / Asignatura:** Programación II
+- **Periodo Lectivo:** Segundo Cuatrimestre 2026
+- **Profesor(a):** Ing. Pablo Cordero Vega
 
 ---
 
