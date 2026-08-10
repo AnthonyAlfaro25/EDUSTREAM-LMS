@@ -16,10 +16,11 @@ Es una plataforma de gestión académica o Learning Management System (LMS). Des
 2. Orden y consistencia entre clases, abstractas. Con manejo adecuado de la herencia y el encapsulamiento.
 3. Interacción dinámica y fluida mediante la implementación de interfaces, sus elementos y propiedades.
 
-**Objetivos Técnico:**
+**Objetivos Académicos:**
 
 1. Demostrar el entendimiento y capacidad de aplicación de los conceptos de Java SE vistos durante el curso.
 2. Implementantar una arquitectura profesional haciendo uso de los estándadares de la programación orientada a objetos.
+3. Mantener buenas prácticas, código limpio y una adecuada documentación.
 
 ---
 
