@@ -111,7 +111,7 @@ o en Netbeans **Compile & Run Project**
 
 ## Estructura del Proyecto
 
-![Estructura](./docs/estructura.png)
+![Estructura]
 
 ---
 
