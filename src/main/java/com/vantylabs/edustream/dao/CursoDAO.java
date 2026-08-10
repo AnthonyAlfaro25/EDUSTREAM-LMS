@@ -1,3 +1,4 @@
+
 package com.vantylabs.edustream.dao;
 
 import com.vantylabs.edustream.Conexion;
@@ -43,44 +44,50 @@ public class CursoDAO implements ICrudDAO<Curso> {
 
     }
 
-    @Override
-    public List<Curso> obtenerTodos() throws SQLException {
+   @Override
+public List<Curso> obtenerTodos() throws SQLException {
 
-        List<Curso> lista = new ArrayList<>();
+    List<Curso> lista = new ArrayList<>();
 
-        String sql = """
-                SELECT *
-                FROM cursos
-                ORDER BY id_curso
-                """;
+    String sql = """
+            SELECT c.id_curso,
+                   c.nombre_curso,
+                   c.descripcion,
+                   u.id_usuario,
+                   u.nombre,
+                   u.email
+            FROM cursos c
+            LEFT JOIN usuarios u
+                   ON c.id_profesor = u.id_usuario
+            ORDER BY c.id_curso
+            """;
 
-        try (Connection con = conexion.getConexion();
-             PreparedStatement ps = con.prepareStatement(sql);
-             ResultSet rs = ps.executeQuery()) {
+    try (Connection con = conexion.getConexion();
+         PreparedStatement ps = con.prepareStatement(sql);
+         ResultSet rs = ps.executeQuery()) {
 
-            while (rs.next()) {
+        while (rs.next()) {
 
-                Curso curso = new Curso();
+            Curso curso = new Curso();
 
-                curso.setId(rs.getInt("id_curso"));
-                curso.setNombre(rs.getString("nombre_curso"));
-                curso.setDescripcion(rs.getString("descripcion"));
+            curso.setId(rs.getInt("id_curso"));
+            curso.setNombre(rs.getString("nombre_curso"));
+            curso.setDescripcion(rs.getString("descripcion"));
 
-                Profesor profesor = new Profesor();
-                profesor.setId(rs.getInt("id_profesor"));
+            Profesor profesor = new Profesor();
 
-                curso.setProfesor(profesor);
+            profesor.setId(rs.getInt("id_usuario"));
+            profesor.setNombre(rs.getString("nombre"));
+            profesor.setEmail(rs.getString("email"));
 
-                lista.add(curso);
+            curso.setProfesor(profesor);
 
-            }
-
+            lista.add(curso);
         }
-
-        return lista;
-
     }
 
+    return lista;
+}
     @Override
     public boolean eliminarPorId(int id) throws SQLException {
 
@@ -100,39 +107,54 @@ public class CursoDAO implements ICrudDAO<Curso> {
 
     }
     
-    public List<Curso> obtenerPorProfesor(int idProfesor) throws SQLException {
+   public List<Curso> obtenerPorProfesor(int idProfesor) throws SQLException {
 
     List<Curso> lista = new ArrayList<>();
 
     String sql = """
-                 SELECT *
-                 FROM cursos
-                 WHERE id_profesor = ?
-                 ORDER BY id_curso
-                 """;
+            SELECT c.id_curso,
+                   c.nombre_curso,
+                   c.descripcion,
+                   u.id_usuario,
+                   u.nombre,
+                   u.email
+            FROM cursos c
+            LEFT JOIN usuarios u
+                   ON c.id_profesor = u.id_usuario
+            WHERE c.id_profesor = ?
+            ORDER BY c.id_curso
+            """;
 
     try (Connection con = Conexion.getConexion();
-            PreparedStatement ps = con.prepareStatement(sql)) {
+         PreparedStatement ps = con.prepareStatement(sql)) {
 
-            ps.setInt(1, idProfesor);
+        ps.setInt(1, idProfesor);
 
-            try (ResultSet rs = ps.executeQuery()) {
-                while (rs.next()) {
-                    Curso curso = new Curso();
+        try (ResultSet rs = ps.executeQuery()) {
 
-                    curso.setId(rs.getInt("id_curso"));
-                    curso.setNombre(rs.getString("nombre_curso"));
-                    curso.setDescripcion(rs.getString("descripcion"));
+            while (rs.next()) {
 
-                    Profesor profesor = new Profesor();
-                    profesor.setId(rs.getInt("id_profesor"));
-                    curso.setProfesor(profesor);
+                Curso curso = new Curso();
 
-                    lista.add(curso);
-                }
+                curso.setId(rs.getInt("id_curso"));
+                curso.setNombre(rs.getString("nombre_curso"));
+                curso.setDescripcion(rs.getString("descripcion"));
+
+                Profesor profesor = new Profesor();
+
+                profesor.setId(rs.getInt("id_usuario"));
+                profesor.setNombre(rs.getString("nombre"));
+                profesor.setEmail(rs.getString("email"));
+
+                curso.setProfesor(profesor);
+
+                lista.add(curso);
             }
         }
-        return lista;
     }
 
+    return lista;
 }
+
+}
+

@@ -23,69 +23,144 @@ public class InscripcionDAO implements ICrudDAO<Inscripcion> {
 
     private final Conexion conexion = new Conexion();
 
-    @Override
-    public boolean insertar(Inscripcion inscripcion) throws SQLException {
+   @Override
+public boolean insertar(Inscripcion inscripcion) throws SQLException {
 
-        String sql = """
-                INSERT INTO inscripciones
-                (id_estudiante, id_curso, fecha_inscripcion)
-                VALUES (?, ?, ?)
-                """;
+    String verificarSql = """
+            SELECT COUNT(*)
+            FROM inscripciones
+            WHERE id_estudiante = ?
+            AND id_curso = ?
+            """;
 
-        try (Connection con = conexion.getConexion();
-             PreparedStatement ps = con.prepareStatement(sql)) {
+    String insertarSql = """
+            INSERT INTO inscripciones
+            (id_estudiante, id_curso, fecha_inscripcion)
+            VALUES (?, ?, ?)
+            """;
 
-            ps.setInt(1, inscripcion.getEstudiante().getId());
-            ps.setInt(2, inscripcion.getCurso().getId());
-            ps.setDate(3, java.sql.Date.valueOf(inscripcion.getFecha()));
+    try (Connection con = conexion.getConexion()) {
 
-            return ps.executeUpdate() > 0;
-        }
+        // Verificar si el estudiante ya está inscrito
+        try (PreparedStatement psVerificar =
+                     con.prepareStatement(verificarSql)) {
 
-    }
+            psVerificar.setInt(1, inscripcion.getEstudiante().getId());
+            psVerificar.setInt(2, inscripcion.getCurso().getId());
 
-    @Override
-    public List<Inscripcion> obtenerTodos() throws SQLException {
+            try (ResultSet rs = psVerificar.executeQuery()) {
 
-        List<Inscripcion> lista = new ArrayList<>();
-
-        String sql = """
-                SELECT *
-                FROM inscripciones
-                ORDER BY id_inscripcion
-                """;
-
-        try (Connection con = conexion.getConexion();
-             PreparedStatement ps = con.prepareStatement(sql);
-             ResultSet rs = ps.executeQuery()) {
-
-            while (rs.next()) {
-
-                Inscripcion inscripcion = new Inscripcion();
-
-                inscripcion.setId(rs.getInt("id_inscripcion"));
-
-                Estudiante estudiante = new Estudiante();
-                estudiante.setId(rs.getInt("id_estudiante"));
-
-                Curso curso = new Curso();
-                curso.setId(rs.getInt("id_curso"));
-
-                inscripcion.setEstudiante(estudiante);
-                inscripcion.setCurso(curso);
-
-                inscripcion.setFecha(
-                        rs.getDate("fecha_inscripcion").toLocalDate());
-
-                lista.add(inscripcion);
-
+                if (rs.next() && rs.getInt(1) > 0) {
+                    return false;
+                }
             }
-
         }
 
-        return lista;
+        // Insertar la inscripción
+        try (PreparedStatement psInsertar =
+                     con.prepareStatement(insertarSql)) {
 
+            psInsertar.setInt(
+                    1,
+                    inscripcion.getEstudiante().getId()
+            );
+
+            psInsertar.setInt(
+                    2,
+                    inscripcion.getCurso().getId()
+            );
+
+            psInsertar.setDate(
+                    3,
+                    java.sql.Date.valueOf(inscripcion.getFecha())
+            );
+
+            return psInsertar.executeUpdate() > 0;
+        }
     }
+}
+
+    @Override
+public List<Inscripcion> obtenerTodos() throws SQLException {
+
+    List<Inscripcion> lista = new ArrayList<>();
+
+    String sql = """
+            SELECT i.id_inscripcion,
+                   i.fecha_inscripcion,
+
+                   e.id_usuario AS id_estudiante,
+                   e.nombre AS nombre_estudiante,
+                   e.email AS email_estudiante,
+
+                   c.id_curso,
+                   c.nombre_curso,
+                   c.descripcion
+
+            FROM inscripciones i
+
+            INNER JOIN usuarios e
+                    ON i.id_estudiante = e.id_usuario
+
+            INNER JOIN cursos c
+                    ON i.id_curso = c.id_curso
+
+            ORDER BY i.id_inscripcion
+            """;
+
+    try (Connection con = conexion.getConexion();
+         PreparedStatement ps = con.prepareStatement(sql);
+         ResultSet rs = ps.executeQuery()) {
+
+        while (rs.next()) {
+
+            Inscripcion inscripcion = new Inscripcion();
+
+            inscripcion.setId(
+                    rs.getInt("id_inscripcion")
+            );
+
+            Estudiante estudiante = new Estudiante();
+
+            estudiante.setId(
+                    rs.getInt("id_estudiante")
+            );
+
+            estudiante.setNombre(
+                    rs.getString("nombre_estudiante")
+            );
+
+            estudiante.setEmail(
+                    rs.getString("email_estudiante")
+            );
+
+            Curso curso = new Curso();
+
+            curso.setId(
+                    rs.getInt("id_curso")
+            );
+
+            curso.setNombre(
+                    rs.getString("nombre_curso")
+            );
+
+            curso.setDescripcion(
+                    rs.getString("descripcion")
+            );
+
+            inscripcion.setEstudiante(estudiante);
+            inscripcion.setCurso(curso);
+
+            inscripcion.setFecha(
+                    rs.getDate("fecha_inscripcion").toLocalDate()
+            );
+
+            lista.add(inscripcion);
+        }
+    }
+
+    return lista;
+}
 
     @Override
     public boolean eliminarPorId(int id) throws SQLException {
